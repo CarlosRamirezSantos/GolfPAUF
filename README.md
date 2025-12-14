@@ -1,5 +1,10 @@
 <h1>CONFIGURACIÓN</h1>
 
+Antes de nada ir a la vista de maven y actualzar las dependencias:
+
+<img width="329" height="338" alt="image" src="https://github.com/user-attachments/assets/58390c6c-a230-4445-8f04-41b7eefd830c" />
+
+
 <img width="572" height="328" alt="image" src="https://github.com/user-attachments/assets/2f0efed3-94b1-4a6c-9880-5976e7f255db" />
 
 Recuerda cambiar la configuración del propperties. He añadido una cosa nueva que es un esquema golf. Debéis crear un esquema antes de nada.
