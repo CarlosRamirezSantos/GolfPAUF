@@ -1,8 +1,8 @@
 package com.torneo.golf.model;
 
 import jakarta.persistence.*;
-
 import java.util.Set;
+import java.util.HashSet;
 
 @Entity
 @Table(name = "jugadores")
@@ -26,15 +26,34 @@ public class Jugador {
 
     @OneToMany(mappedBy = "jugador")
     private Set<Clasificacion> clasificaciones;
+    @Column(nullable = false)
+    private Integer dineroAcumulado;
+
+    // RELACIÓN MUCHOS A UNO (Con Torneo)
+    @ManyToOne
+    @JoinColumn(name = "torneo_id") // Clave foránea
+    private Torneo torneo;
+
+
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "jugadores_etiquetas",
+            joinColumns = @JoinColumn(name = "jugador_id"),
+            inverseJoinColumns = @JoinColumn(name = "etiqueta_id")
+    )
+    private Set<Etiqueta> etiquetas = new HashSet<>();
+// -------------------------------------------
 
     public Jugador() {
     }
 
-    public Jugador(String nombre, String apellidos, String nacionalidad, Integer handicap) {
+    public Jugador(String nombre, String apellidos, String nacionalidad, Integer handicap, Integer dineroAcumulado) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.nacionalidad = nacionalidad;
         this.handicap = handicap;
+        this.dineroAcumulado = dineroAcumulado;
     }
 
     public Long getId() {
@@ -83,5 +102,14 @@ public class Jugador {
 
     public void setClasificaciones(Set<Clasificacion> clasificaciones) {
         this.clasificaciones = clasificaciones;
+    }
+
+    // Getters y Setters para etiquetas
+    public Set<Etiqueta> getEtiquetas() {
+        return etiquetas;
+    }
+
+    public void setEtiquetas(Set<Etiqueta> etiquetas) {
+        this.etiquetas = etiquetas;
     }
 }

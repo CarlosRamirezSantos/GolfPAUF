@@ -2,6 +2,8 @@ package com.torneo.golf.model;
 
 import jakarta.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -40,6 +42,10 @@ public class Torneo {
         this.fechaFin = fechaFin;
         this.premioTotal = premioTotal;
     }
+
+    @OneToMany(mappedBy = "torneo")
+    private List<Jugador> jugadores = new ArrayList<>();
+
 
     public Long getId() {
         return id;
