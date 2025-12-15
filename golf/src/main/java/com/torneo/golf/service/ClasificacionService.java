@@ -26,11 +26,11 @@ public class ClasificacionService {
 
 
         if (posicion == 1) {
-            premioGanado = premioTotal * 0.50; // 50% para el primero
+            premioGanado = premioTotal * 0.50;
         } else if (posicion == 2) {
-            premioGanado = premioTotal * 0.30; // 30% para el segundo
+            premioGanado = premioTotal * 0.30;
         } else if (posicion == 3) {
-            premioGanado = premioTotal * 0.20; // 20% para el tercero
+            premioGanado = premioTotal * 0.20;
         }
 
 

@@ -16,10 +16,10 @@ public interface ClasificacionRepository extends JpaRepository<Clasificacion, Lo
 
 
     @Query(value = "SELECT j.id, j.nombre, j.apellidos, j.handicap, c.posicion, t.nombre " +
-            "FROM clasificaciones c " +
-            "JOIN jugadores j ON c.jugador_id = j.id " +
-            "JOIN torneos t ON c.torneo_id = t.id " +
+            "FROM golf.clasificaciones c " +
+            "JOIN golf.jugadores j ON c.jugador_id = j.id " +
+            "JOIN golf.torneos t ON c.torneo_id = t.id " +
             "WHERE c.torneo_id = :idTorneo AND c.posicion = 1",
             nativeQuery = true)
     List<Object[]> encontrarGanadorPorTorneo(@Param("idTorneo") Long idTorneo);
-}
+    }

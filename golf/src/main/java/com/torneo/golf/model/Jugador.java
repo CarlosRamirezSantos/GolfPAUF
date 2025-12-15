@@ -31,7 +31,7 @@ public class Jugador {
 
     // RELACIÓN MUCHOS A UNO (Con Torneo)
     @ManyToOne
-    @JoinColumn(name = "torneo_id") // Clave foránea
+    @JoinColumn(name = "torneo_id")
     private Torneo torneo;
 
 
@@ -43,7 +43,7 @@ public class Jugador {
             inverseJoinColumns = @JoinColumn(name = "etiqueta_id")
     )
     private Set<Etiqueta> etiquetas = new HashSet<>();
-// -------------------------------------------
+
 
     public Jugador() {
     }
@@ -104,7 +104,6 @@ public class Jugador {
         this.clasificaciones = clasificaciones;
     }
 
-    // Getters y Setters para etiquetas
     public Set<Etiqueta> getEtiquetas() {
         return etiquetas;
     }
